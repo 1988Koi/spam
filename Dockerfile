@@ -8,8 +8,7 @@ COPY backend/package*.json ./backend/
 RUN cd backend && npm install --build-from-source
 
 # Copiar todo o backend e frontend
-COPY backend ./backend
-COPY frontend ./frontend
+COPY backend/frontend ./backend/frontend
 
 # Build TypeScript
 RUN cd backend && npm run build

@@ -14,8 +14,10 @@ AppDataSource.initialize().catch(err => console.error("DB init error:", err));
 
 // Serve frontend estático
 const frontendPath = path.join(__dirname, "../../frontend/dist");
-app.use(express.static(frontendPath));
-app.get("*", (_req, res) => res.sendFile(path.join(frontendPath, "index.html")));
+app.use(express.static(path.join(__dirname, 'frontend', 'dist')));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'frontend', 'dist', 'index.html'));
+});
 
 // API
 app.use("/api/products", productRouter);
