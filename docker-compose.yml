@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  spamton-shop:
+    build: .
+    ports:
+      - "4000:4000"
+    environment:
+      - JWT_SECRET=supersecret
+      - NODE_ENV=production
+    volumes:
+      - ./backend/database.sqlite:/app/backend/database.sqlite
